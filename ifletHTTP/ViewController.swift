@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var movieTableView: UITableView!
-    var movies: [Movie]? = []
+    var movies: [Movie] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,13 +21,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return movies?.count ?? 0
+        return movies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let movie = movies?[indexPath.row]
-        cell.textLabel?.text = movie?.title
+        let movie = movies[indexPath.row]
+        cell.textLabel?.text = movie.title
         return cell
     }
     
@@ -74,12 +74,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
             task.resume()
         }
-        }
-        
-
-//        let apiKey = "16004ede4c2584a8931df5e64bd60408"
-//        let urlString = "https://api.themoviedb.org/3/movie/popular?api_key=\(apiKey)&language=ko-KR&page=1"
-       
+    }
+    
+    
     
 }
 
